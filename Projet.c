@@ -71,48 +71,37 @@ void matrice_affichage (Case mat[9][9]){
     printf("\n");
 }
 
-void deplacementv1(Plateau *P){
+int dans_plateau(char lD, int cD, char lA, int cA){
+    
+    return (lD>='A' && lD <='I' && cD>=1 && cD<=9 && lA>='A' && lA<='I' && cA >=1 && cA<=8);
+    
+    
+}
+
+
+void deplacementv1(Plateau *P,char joueurcour){
   char virgule,ldep,larr;
   int cdep,carr,valide;
   valide=FAUX;
-  while(valide=FAUX){
+  while(valide==FAUX){
         printf("Saisir la position d'arrivée et  de départ suivant ce format : posDépart,PosArrivé\n");
         scanf("%c",&ldep);
         scanf("%d",&cdep);
         scanf("%c",&virgule);
         scanf("%c",&larr);
         scanf("%d",&carr);
-        if(ldep>='A' && ldep <='I' && cdep>=1 && cdep<=9 && larr>='A' && larr<='I' && carr >=1 && carr<=8){
-             while((nbPionBlanc() > 5)||(nbPionNoir() > 5)){ 
-	       T = blanc;
-	       if (M[ldep][cdep] == T){
-		 if(cdep == carr || ldep == larr){
-		   if(length(ldep,larr,cdep,carr) <= 2){
-		     if(M[larr][carr].occupé != FAUX){
-		       deplacement();
-		       T = noir;
-		     }
-		     else { printf("La ");
-		     }
-		   }
-		   else{ 
-		   }
-		 }
-		 else{ printf("Déplacez vous en colonne ou en ligne.\n");
-		 }
-	       }
-	       else{ printf("Choisissez un pion de votre couleur.\n");
-	       }
-	     }
-            
-            
+        if(dans_plateau(ldep,cdep,larr,carr) ){
+            valide=VRAI;
             }
         else{
             printf("veuillez saisir un déplacement valide\n");
             }
         }
+    printf("movement valide\n");
       
 }
+
+
 
         
 int main(){
@@ -123,7 +112,7 @@ int main(){
     matrice_affichage(Plat.cas);
     printf("début de la partie\n");
     printf("Tour des %c\n",joueurcour);
-    deplacementv1(&Plat);
+    deplacementv1(&Plat,joueurcour);
     return 0;
         
 }
