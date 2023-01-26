@@ -1,4 +1,6 @@
 # Hasami shogi
+Creation of the Game in C   
+
 ## Description
 Le Hasami Shogi est un jeu japonais. Hasami est un terme bien connu des joueurs de Go, que l'on traduit par "prise en tenaille" ou "pince".
 Il se joue à deux sur un terrain de 9 x 9 cases avec 18 pions blancs et 18 pions noirs.
